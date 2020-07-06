@@ -1,0 +1,6 @@
+execution:
+- scenario: existing 
+
+scenarios:
+  existing:
+    script: default_test_plan.jmx 
