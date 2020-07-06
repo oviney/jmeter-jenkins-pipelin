@@ -1,0 +1,13 @@
+FROM blazemeter/taurus
+
+WORKDIR /bzt-configs
+
+# Copy desired performance scripts into the container
+COPY ./bzt-configs /bzt-configs
+
+# User defined variables
+ENV testDir /bzt-configs
+ENV JMETER_TEST default_test_plan.jmx
+ENV TAURUS_CONFIG sample.yml
+
+ENTRYPOINT [ "sh", "-c", "bzt -l /tmp/artifacts/bzt.log sample.yml -report", "ignored" ]
